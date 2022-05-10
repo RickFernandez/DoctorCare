@@ -6,7 +6,7 @@
 }
 
 :root {
-  --hue: 148;
+  --hue: 180;
   --primary-color: hsl(var(--hue), 100%, 26%);
   --headline: hsl(210, 11%, 15%);
   --paragraph: hsl(210, 9%, 31%);
@@ -456,12 +456,11 @@ footer .social-links {
 /*=== RESPONSIVO - DESKTOP =================================*/
 
 @media screen and (min-width: 1024px) {
-  
   /*=== GERAL =================================*/
   body {
     overflow: auto;
   }
-  
+
   .wrapper {
     width: min(112rem, 100%);
     display: grid;
@@ -473,7 +472,7 @@ footer .social-links {
 
   section header h2 {
     font-size: 4rem;
-    line-height: 5.2rem
+    line-height: 5.2rem;
   }
 
   .col-a {
@@ -520,7 +519,7 @@ footer .social-links {
   }
 
   nav#navigation .menu ul li a {
-    opacity: .7;
+    opacity: 0.7;
     color: var(--primary-color);
   }
 
@@ -547,7 +546,7 @@ footer .social-links {
 
   nav#navigation.scroll .menu ul li a {
     color: var(--brand-light-2);
-    opacity: .6;
+    opacity: 0.6;
   }
 
   nav#navigation.scroll .menu a.button {
@@ -556,17 +555,17 @@ footer .social-links {
   }
 
   nav#navigation .menu li a {
-    transition: opacity .5s;
+    transition: opacity 0.5s;
   }
 
-  nav#navigation .menu li a.active, 
+  nav#navigation .menu li a.active,
   nav#navigation .menu li a:hover {
     opacity: 1;
     font-weight: 700;
   }
 
   nav#navigation .menu li a::after {
-    content: "";
+    content: '';
     width: 0;
     height: 2px;
     background-color: var(--primary-color);
@@ -574,13 +573,13 @@ footer .social-links {
     position: relative;
     bottom: -2rem;
     left: -0.5rem;
-    transition: width .5s;
+    transition: width 0.5s;
   }
-  
+
   nav#navigation.scroll .menu li a::after {
     background-color: white;
   }
-  
+
   nav#navigation .menu li a.active::after,
   nav#navigation .menu li a:hover::after {
     padding-inline: 0.8rem;
@@ -603,16 +602,16 @@ footer .social-links {
   #home::before {
     height: calc(96% - var(--nav-height));
   }
-  
+
   #home {
     padding-top: var(--nav-height);
   }
-  
+
   #home .wrapper {
     grid-template-columns: 60.5rem 1fr;
     grid-template-areas:
-    'A B'
-    'C C';
+      'A B'
+      'C C';
   }
 
   #home .col-a {
@@ -654,7 +653,7 @@ footer .social-links {
   }
 
   /*=== SERVICES =================================*/
-  #services  h2 {
+  #services h2 {
     width: 47rem;
     margin-inline: auto;
   }
@@ -699,12 +698,12 @@ footer .social-links {
   footer {
     padding-block: 8rem;
   }
-  
+
   footer .wrapper {
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 'A B';
   }
-  
+
   footer .col-a {
     align-self: center;
   }
@@ -713,7 +712,7 @@ footer .social-links {
     align-self: center;
     justify-self: end;
   }
- 
+
   footer p {
     margin-bottom: 0;
   }
