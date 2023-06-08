@@ -1,6 +1,8 @@
 window.addEventListener('scroll', onScroll)
+const navigation = document.querySelector('#navigation')
 
 onScroll()
+
 function onScroll() {
   showNavOnScroll()
   showBackToTopButtonOnScroll()
@@ -11,38 +13,26 @@ function onScroll() {
 }
 
 function activeMenuAtCurrentSection(section) {
-  const targetline = scrollY + innerHeight / 2 // (Linha alvo)
+  const targetline = scrollY + innerHeight / 2
 
-  // É preciso verificar se a seção passou da linha
-  // Quais dados vou precisar?
-  const sectionTop = section.offsetTop // Valor do início da section (topo da seção)
-  const sectionHeight = section.offsetHeight // Valor do final da section (altura da seção)
+  const sectionTop = section.offsetTop
+  const sectionHeight = section.offsetHeight
 
+  const sectionTopReachOrPassedTargetLine = targetline >= sectionTop
 
-  // Verificação se a seção passou da linha
-  const sectionTopReachOrPassedTargetLine = targetline >= sectionTop; // (o topo da seção alcançou ou ultrapassou a linha alvo)
+  const sectionEndsAt = sectionTop + sectionHeight
 
-  // informações dos dados e da lógica
-  // console.log('O topo da seção chegou ou passou da linha?', sectionTopReachOrPassedTargetLine);
+  const sectionEndPassedTargetLine = sectionEndsAt <= targetline
 
-  // Verificar se a base está abaixo da linha alvo
-  // Quais dados vou precisar?
-  const sectionEndsAt = sectionTop + sectionHeight; // (A seção termina onde?)
+  const sectionBounderies = sectionTopReachOrPassedTargetLine && !sectionEndPassedTargetLine
 
-  const sectionEndPassedTargetLine = sectionEndsAt <= targetline; // (O final da seção pasou da linha alvo)
+  const sectionId = section.getAttribute('id')
+  const menuElement = document.querySelector(`.menu a[href*=${sectionId}]`)
 
-  // console.log('O fundo da seção passou da linha?',sectionEndPassedTargetLine);
-
-  const sectionBounderies = sectionTopReachOrPassedTargetLine && !sectionEndPassedTargetLine; //(limites da seção)
-
-  const sectionId = section.getAttribute('id') // (pega o Id da seção)
-  const menuElement = document.querySelector(`.menu a[href*=${sectionId}]`); // (elemento do menu)
-
-  menuElement.classList.remove('active');
- if (sectionBounderies) {
-   menuElement.classList.add('active');
- }
- 
+  menuElement.classList.remove('active')
+  if (sectionBounderies) {
+    menuElement.classList.add('active')
+  }
 }
 
 function showNavOnScroll() {
